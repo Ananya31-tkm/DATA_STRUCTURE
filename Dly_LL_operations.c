@@ -6,8 +6,7 @@ struct node{
     struct node *prev;
     int data;
     struct node *next;
-};
-struct node *head;
+}struct node *head;
 void insert_beg()
 { int item;
 printf("enter the element:");

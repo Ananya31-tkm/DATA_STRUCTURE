@@ -19,9 +19,9 @@ int main()
 
         // if the value of current element is less than previous element
         // then assign new value to min
-        if(my_arr[i] < min)
+        if(arr[i] < min)
         {
-            min = my_arr[i];
+            min = arr[i];
         }
      }
 

@@ -25,7 +25,7 @@ void main()
      printf("\n1 - Insert an element into tree\n");
          printf("2 - Inorder Traversal\n");
          printf("3 - Delete a  node \n");
-          printf("4 - Exit\n");
+         printf("4 - Exit\n");
          do
          {
               printf("\nEnter your choice : ");
@@ -41,7 +41,7 @@ void main()
             break;
         case 3:delete();
         break;
-            case 6:printf("\nInvalid option\n");
+        case 4:printf("\nInvalid option\n");
             exit(0);
         default :     
             printf("Wrong choice, Please enter correct choice  ");
@@ -51,14 +51,6 @@ void main()
         }while(ch<4);
                   }
                
-void insert()
-{
-    create();
-    if (root == NULL) 
-        root = temp;
-    else    
-        search(root);    
-}
 void create()
 {
     int data;
@@ -69,8 +61,17 @@ void create()
     temp->data = data;
     temp->l = temp->r = NULL;
 }
-void search(struct node *t)
+void insert()
 {
+    create();
+    if (root == NULL) 
+        root = temp;
+    else    
+        search(root);    
+}
+
+void search(struct node *t)
+ {
     if ((temp->data > t->data) && (t->r != NULL))      /* value more than root node value insert at right */
         search(t->r);
     else if ((temp->data> t->data) && (t->r == NULL))
@@ -80,7 +81,7 @@ void search(struct node *t)
     else if ((temp->data < t->data) && (t->l == NULL))
         t->l = temp;
 }
-void inorder(struct node *t)
+void inorder(struct node *t) 
 {
     if (root == NULL)
     {
@@ -89,7 +90,7 @@ void inorder(struct node *t)
     }
     if (t->l != NULL)    
         inorder(t->l);
-    printf("%d -> ", t->data);
+    printf("%d -> ", t->data);        /*display */
     if (t->r != NULL)    
         inorder(t->r);
 }
@@ -104,13 +105,14 @@ void delete()
     }
     printf("Enter the data to be deleted : ");
     scanf("%d", &data);
-    t1 = root;
-    t2 = root;
     search1(root, data);
+    printf("Deleted");
 }
+
     void search1(struct node *t, int data)
-{
-    if ((data>t->data))
+{     
+    t1=root;t2=root;
+    if ((data > t->data))
     {
         t1 = t;
         search1(t->r, data);
@@ -128,9 +130,8 @@ void delete()
 void delete1(struct node *t)
 {
     int k;
- 
-    /* To delete leaf node */
-    if ((t->l == NULL) && (t->r == NULL))
+                   /* To delete leaf node */
+if ((t->l == NULL) && (t->r == NULL))
     {
         if (t1->l == t)
         {
@@ -164,10 +165,11 @@ void delete1(struct node *t)
         t = NULL;
         free(t);
         return;
-    }
- 
-    /* To delete node having right hand child */
-    else if (t->l == NULL)
+    } 
+                               
+                                   /* To delete node having right hand child */
+
+ else if (t->l == NULL)
     {
         if (t1 == t)
         {
@@ -210,9 +212,10 @@ int smallest(struct node *t)
     }
     else    
         return (t->data);
+    
 }
  
-/* To find the largest element in the left sub tree */
+                             /*  find the largest element in the right sub tree */
 int largest(struct node *t)
 {
     if (t->r != NULL)
@@ -222,5 +225,5 @@ int largest(struct node *t)
     }
     else    
         return(t->data);
+        
 }
- 

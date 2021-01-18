@@ -17,12 +17,12 @@ void merge(int arr[], int p, int q, int r)
 	for (i = 0; i < n1; i++)
 		L[i] = arr[p + i];
 	for (j = 0; j < n2; j++)
-		R[j] = arr[q + 1 + j];
+		R[j] = arr[q + j + 1];
 
 	/* Merge the temp arrays back into arr[]*/
-	i = 0; // Initial index of first subarray
-	j = 0; // Initial index of second subarray
-	k = p; // Initial index of merged subarray
+	   i = 0;
+	   j = 0; 
+	   k = p; // Initial index of merged subarray
 	while (i < n1 && j < n2) {
 		if (L[i] <= R[j]) {
 			arr[k] = L[i];
@@ -67,7 +67,7 @@ void mergeSort(int arr[], int l, int r)
 		merge(arr, l, m, r);
 	}
              }
-/* Function to print an array */
+/* print  array */
 void printArray(int arr[], int n)
 {
 	int i;
